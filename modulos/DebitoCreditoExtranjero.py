@@ -5,15 +5,17 @@
 
 import pandas as pd
 import logging
-logging.basicConfig(filename='registro.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
+logging.basicConfig(filename='registro.log', level=logging.DEBUG, 
+                    format='%(asctime)s %(levelname)s:%(message)s')
+
 df = pd.read_excel('MET001.xlsx')
 
-def InfonetCobranzas(): 
+
+def DebitoCreditoExtranjero(): 
     try:
-        print("Modulo Infonet Cobranzas por terminar\n")
+        print("DebitoCredito Extranjero por terminar\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
     else:
-        logging.info('InfonetCobranzas() ran successfully')
-
+        logging.info('DebitoCreditoExtranjero() ran successfully')
     return 0
