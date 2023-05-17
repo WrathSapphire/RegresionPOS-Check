@@ -23,5 +23,4 @@ Anulaciones()
 Lealtad() 
 Documentacion()                                 #Crea carpeta c/ hora sistema y mueve los df exportados
 sys.stdout.close()                              #Deja de escribir y cierra reporte.txt
-ImprimirEnPantalla()                            #Abre el reporte y renombra el archivo una vez cerrado
 MoverArchivos()                                 #Mueve carpetas y reportes a ./Tests
