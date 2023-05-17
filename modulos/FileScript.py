@@ -30,14 +30,11 @@ def Documentacion():
             shutil.move(os.path.join(ruta, archivo), carpeta)
     return 0
 
-def ImprimirEnPantalla():                               
-    os.system('cmd /c reporte.txt')                     #Abre archivo reporte.txt
-    os.rename('reporte.txt', reporte)                   #Una vez cerrado el archivo será renombrado
-    return 0
-
 def MoverArchivos():
-    source = 'C:\RegresionCheckMod'
-    destination = 'C:\RegresionCheckMod\Tests'
+    source = ".\\"
+    destination = '.\\Tests'
+    os.rename('reporte.txt', reporte)                   #Una vez cerrado el archivo será renombrado
+
     for foldername in os.listdir(source):               #Mueve carpetas
         if foldername.startswith('Ejecución'):
             shutil.move(os.path.join(source, foldername), destination)
@@ -46,25 +43,3 @@ def MoverArchivos():
         if filename.startswith('Reporte') and filename.endswith('.txt'):
             shutil.move(os.path.join(source, filename), destination)
     return 0
-
-####################################################################################
-#Modulo para loggin de las funciones
-"""import logging
-logging.basicConfig(filename='registro.log', level=logging.DEBUG, 
-                    format='%(asctime)s %(levelname)s:%(message)s')
-
-def InfonetCobranzas(): 
-    try:
-        print("Modulo Infonet Cobranzas por terminar\n")
-    except Exception as e:
-        logging.error(f'Error occurred: {e}', exc_info=True)            #Loggea error
-    else:
-        logging.info('InfonetCobranzas() ran successfully')             #Loggea info (si se completo el modulo)
-
-    return 0
-    
-###################################################################################
-"""
-
-
-
