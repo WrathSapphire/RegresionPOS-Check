@@ -161,5 +161,4 @@ cython_debug/
 *.log
 *.xlsx
 *txt
-registro.log
-*.log
+*.bat
