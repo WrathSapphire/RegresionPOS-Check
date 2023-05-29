@@ -5,6 +5,9 @@
 
 import sys
 from modulos import *
+import logging
+logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s:%(message)s')
 
 try:
     sys.stdout = open(r'.\reporte.txt', 'w')        #Comienza a escribir todo lo impreso en reporte.txt

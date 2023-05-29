@@ -12,7 +12,7 @@ reporte = datetime.now().strftime("Reporte_%Y-%m-%d_%H-%M-%S")
 reporte = reporte + '.txt'
 
 def TextoASCII():
-    f = open('ASCII.text', 'r')                         #Lee e imprime archivo ASCII.text
+    f = open('.\\resources\ASCII.text', 'r')                         #Lee e imprime archivo ASCII.text
     file_contents = f.read()
     print (file_contents)
     f.close()
@@ -32,8 +32,10 @@ def Documentacion():
 
 def MoverArchivos():
     source = ".\\"
-    destination = '.\\Tests'
+    destination = '.\\tests'
     os.rename('reporte.txt', reporte)                   #Una vez cerrado el archivo será renombrado
+    if not os.path.exists("./tests"):
+        os.makedirs("tests")                            #Si no existe el directorio tests, el mismo será creado
 
     for foldername in os.listdir(source):               #Mueve carpetas
         if foldername.startswith('Ejecución'):

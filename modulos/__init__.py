@@ -16,4 +16,3 @@ from modulos.VentaTarjetasInternacionales import *
 from modulos.Lealtad import *
 from modulos.InfonetCobranzas import *
 from modulos.FileScript import *
-from modulos.DebitoCreditoExtranjero import *

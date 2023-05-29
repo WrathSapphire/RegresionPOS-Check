@@ -5,10 +5,8 @@
 
 import pandas as pd
 import logging
-logging.basicConfig(filename='registro.log', level=logging.DEBUG, 
-                    format='%(asctime)s %(levelname)s:%(message)s')
 
-df = pd.read_excel('MET001.xlsx')
+df = pd.read_excel('.\\resources\MET001.xlsx')
 
 def OpSinTarjeta(): 
     print("####OpSinTarjeta####\n")
