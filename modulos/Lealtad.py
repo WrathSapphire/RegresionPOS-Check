@@ -47,5 +47,5 @@ def Lealtad():
         logging.error(f'Error occurred: {e}', exc_info=True)
         print("Hugo un error con el modulo Lealtad\n")
     else:
-        logging.info('Lealtad() se ejecutó correctamente\n')
+        logging.info('Lealtad() se ejecutó correctamente')
     return 0
