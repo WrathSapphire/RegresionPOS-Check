@@ -60,7 +60,6 @@ def Anulaciones():
         count_row = df_temp.shape[0]  
         if df_temp.empty:
             print("[Falta] Venta Tarjeta Otra Procesadora (UENO) Anulada")
-            df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
         else:
             print("[Correcto] Venta Tarjeta Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
