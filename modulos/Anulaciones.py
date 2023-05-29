@@ -51,19 +51,19 @@ def Anulaciones():
             print("[Correcto] Venta Tarjeta Internacional Anulada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Anulada.xlsx')
 
-        # Venta Tarjeta de Otra Procesadora (UENO) Anulada [Pendiente de arreglo xd]
-
-        df_temp = df.loc[((df['NRO_TARJETA'].str.contains('5585480009064136')) 
-                          | (df['NRO_TARJETA'].str.contains('5585490001200661'))) 
+        # Venta Tarjeta Otra Procesadora (UENO) Anulada
+        # Para correcto funcionamiento del módulo es necesario almacenar la columna NRO_TARJETA como texto
+        df_temp = df.loc[((df['NRO_TARJETA'].str.contains('5585480009064136'))          #TC 
+                          | (df['NRO_TARJETA'].str.contains('5585490001200661')))       #TD
                           & (df['COD_REEXT'] == 'R006')]
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:
-            print("[Falta] Venta Tarjeta de Otra Procesadora (UENO) Anulada")
-            df_temp.to_excel('Venta Tarjeta de Otra Procesadora (UENO) Anulada.xlsx')
+            print("[Falta] Venta Tarjeta Otra Procesadora (UENO) Anulada")
+            df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
         else:
-            print("[Correcto] Venta Tarjeta de Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta Tarjeta de Otra Procesadora (UENO) Anulada.xlsx')
+            print("[Correcto] Venta Tarjeta Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
 
         print("\n")
 
