@@ -11,9 +11,9 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def Anulaciones(): 
+    print("####Anulaciones####\n")
     try:
-        print("Modulo Anulaciones por terminar, falta TC/TD de otras procesadoras.\n")
-        # Venta TD Anulada
+               # Venta TD Anulada
 
         df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
                          & (df['COD_RE'] == 00)
@@ -51,9 +51,24 @@ def Anulaciones():
             print("[Correcto] Venta Tarjeta Internacional Anulada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Anulada.xlsx')
 
+        # Venta Tarjeta de Otra Procesadora (UENO) Anulada [Pendiente de arreglo xd]
+
+        df_temp = df.loc[((df['NRO_TARJETA'].str.contains('5585480009064136')) 
+                          | (df['NRO_TARJETA'].str.contains('5585490001200661'))) 
+                          & (df['COD_REEXT'] == 'R006')]
+
+        count_row = df_temp.shape[0]  
+        if df_temp.empty:
+            print("[Falta] Venta Tarjeta de Otra Procesadora (UENO) Anulada")
+            df_temp.to_excel('Venta Tarjeta de Otra Procesadora (UENO) Anulada.xlsx')
+        else:
+            print("[Correcto] Venta Tarjeta de Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            df_temp.to_excel('Venta Tarjeta de Otra Procesadora (UENO) Anulada.xlsx')
+
         print("\n")
+
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
     else:
-        logging.info('Anulaciones() ran successfully')
+        logging.info('Anulaciones() se ejecutó correctamente')
     return 0

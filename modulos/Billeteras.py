@@ -11,6 +11,7 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def Billeteras(): 
+    print("####Billeteras####\n")
     try:
         # Venta Billetera ZIMPLE Aprobada   
         df_temp = df.loc[(df['PRESTACION'] == 'STAR')
@@ -55,7 +56,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera Vision Aprobada [DESA]")
+            print("[Falta] Billetera Vision Aprobada")
         else:
             print("[Correcto] Billetera Vision Aprobada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera Vision Aprobada.xlsx')
@@ -71,7 +72,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera Vision Reversada [DESA]")
+            print("[Falta] Billetera Vision Reversada")
         else:
             print("[Correcto] Billetera Vision Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera Vision Reversada.xlsx')
@@ -87,7 +88,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera PJ Aprobada [DESA]")
+            print("[Falta] Billetera PJ Aprobada")
         else:
             print("[Correcto] Billetera PJ Aprobada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera PJ Aprobada.xlsx')
@@ -103,7 +104,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera PJ Reversada [DESA]")
+            print("[Falta] Billetera PJ Reversada")
         else:
             print("[Correcto] Billetera PJ Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera PJ Reversada.xlsx')
@@ -119,7 +120,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera BNF Aprobada [DESA]")
+            print("[Falta] Billetera BNF Aprobada")
         else:
             print("[Correcto] Billetera BNF Aprobada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera BNF Aprobada.xlsx')
@@ -135,7 +136,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera BNF Reversada [DESA]")
+            print("[Falta] Billetera BNF Reversada")
         else:
             print("[Correcto] Billetera BNF Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera BNF Reversada.xlsx')
@@ -143,6 +144,7 @@ def Billeteras():
         print("\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hugo un error con el modulo Billeteras\n")
     else:
-        logging.info('Billeteras() ran successfully')
+        logging.info('Billeteras() se ejecutó correctamente')
     return 0

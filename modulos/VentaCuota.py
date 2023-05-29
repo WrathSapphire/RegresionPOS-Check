@@ -11,6 +11,7 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def VentaCuota(): 
+    print("####VentaCuota####\n")
     try:
         # Venta Cuota Banda Aprobada   
         df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
@@ -108,6 +109,7 @@ def VentaCuota():
         print("\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hugo un error con el modulo VentaCuota\n")
     else:
-        logging.info('VentaCuota() ran successfully')
+        logging.info('VentaCuota() se ejecutó correctamente')
     return 0

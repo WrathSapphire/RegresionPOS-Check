@@ -11,6 +11,7 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def TransaccionesAgiles(): 
+    print("####TransaccionesAgiles####\n")
     try:
         # Transacción Ágil TD Aprobada 
         df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
@@ -109,6 +110,8 @@ def TransaccionesAgiles():
         print("\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hugo un error con el modulo TransaccionesAgiles\n")
+
     else:
-        logging.info('TransaccionesAgiles() ran successfully')
+        logging.info('TransaccionesAgiles() se ejecutó correctamente')
     return 0

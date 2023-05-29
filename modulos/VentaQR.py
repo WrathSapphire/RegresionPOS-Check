@@ -11,6 +11,7 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def VentaQR():
+    print("####VentaQR####\n")
     try: 
         # Venta QR TC Aprobada   
         df_temp = df.loc[(df['PRESTACION'] == 'TCQR')
@@ -72,6 +73,7 @@ def VentaQR():
         print("\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hugo un error con el modulo VentaQR\n")
     else:
-        logging.info('VentaQR() ran successfully')
+        logging.info('VentaQR() se ejecutó correctamente')
     return 0

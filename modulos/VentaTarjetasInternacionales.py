@@ -11,6 +11,7 @@ logging.basicConfig(filename='registro.log', level=logging.DEBUG,
 df = pd.read_excel('MET001.xlsx')
 
 def VentaTarjetasInternacionales(): 
+    print("####VentaTarjetasInternacionales####\n")
     try:
         # Venta Tarjeta Internacional Aprobada
         df_temp = df.loc[(df['LOCAL_INTERNACIONAL'] == 'I')
@@ -40,6 +41,7 @@ def VentaTarjetasInternacionales():
         print("\n")
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hugo un error con el modulo VentaTarjetasInternacionales\n")
     else:
-        logging.info('VentaTarjetasInternacionales() ran successfully')
+        logging.info('VentaTarjetasInternacionales() se ejecutó correctamente')
     return 0
