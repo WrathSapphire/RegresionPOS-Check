@@ -1,2 +1,2 @@
-for /d %%p in ("C:\RegresionCheckMod\Tests\*.*") do rmdir "%%p" /s /q
-del /q C:\RegresionCheckMod\Tests\*.*
+for /d %%p in (".\Tests\*.*") do rmdir "%%p" /s /q
+del /q .\Tests\*.*
