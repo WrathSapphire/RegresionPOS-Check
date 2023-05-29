@@ -27,4 +27,4 @@ try:
 except Exception as e:
     logging.error(f'Error en la ejecución del programa!\n{e}', exc_info=True)
 else:
-    logging.info('El programa se ejecutó y finalizó correctamente!')
+    logging.info('El programa se ejecutó y finalizó correctamente!\n')
