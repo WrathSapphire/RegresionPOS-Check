@@ -8,7 +8,6 @@ from modulos import *
 from datetime import datetime
 from tkinter import *
 import tkinter as tk
-from PIL import ImageTk, Image
 import logging
 logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s:%(message)s')
