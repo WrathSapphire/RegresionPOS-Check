@@ -16,14 +16,13 @@ def VentaVuelto():
                          & (df['CASHBACK'] == 'S')
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == '    ')]
-
         count_row = df_temp.shape[0]
+        
         if df_temp.empty:
             print("[Falta] Venta Vuelto TD Aprobada")
         else:
             print("[Correcto] Venta Vuelto TD Aprobada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Vuelto TD Aprobada.xlsx')
-
 
         # Venta Vuelto TD Reversada
         df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
@@ -38,11 +37,11 @@ def VentaVuelto():
         else:
             print("[Correcto] Venta Vuelto TD Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Vuelto TD Reversada.xlsx')
-
         print("\n")
+    
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hugo un error con el modulo VentaVuelto\n")
+        print("Hubo un error con el modulo VentaVuelto\n")
     else:
         logging.info('VentaVuelto() se ejecutó correctamente')
     return 0

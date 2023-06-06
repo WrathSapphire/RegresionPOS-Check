@@ -11,8 +11,7 @@ df = pd.read_excel('.\\resources\MET001.xlsx')
 def Anulaciones(): 
     print("####Anulaciones####\n")
     try:
-               # Venta TD Anulada
-
+         # Venta TD Anulada
         df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == 'R006')]
@@ -61,11 +60,12 @@ def Anulaciones():
         else:
             print("[Correcto] Venta Tarjeta Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
-
         print("\n")
 
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
+        print("Hubo un error en el modulo Anulaciones\n")
+
     else:
         logging.info('Anulaciones() se ejecutó correctamente')
     return 0

@@ -43,9 +43,10 @@ def OpSinTarjeta():
             print("[Correcto] Op. Sin Tarjeta Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Op Sin Tarjeta Reversada.xlsx')
         print ("\n")
+    
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hugo un error con el modulo OpSinTarjeta\n")
+        print("Hubo un error con el modulo OpSinTarjeta\n")
 
     else:
         logging.info('OpSinTarjeta() se ejecutó correctamente')

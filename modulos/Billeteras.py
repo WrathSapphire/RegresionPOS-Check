@@ -22,7 +22,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera ZIMPLE Aprobada [TEST]")
+            print("[Falta] Billetera ZIMPLE Aprobada")
         else:
             print("[Correcto] Billetera ZIMPLE Aprobada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera ZIMPLE Aprobada.xlsx')
@@ -38,7 +38,7 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera ZIMPLE Reversada [TEST]")
+            print("[Falta] Billetera ZIMPLE Reversada")
         else:
             print("[Correcto] Billetera ZIMPLE Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera ZIMPLE Reversada.xlsx')
@@ -107,7 +107,7 @@ def Billeteras():
             print("[Correcto] Billetera PJ Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera PJ Reversada.xlsx')
 
-            # Venta Billetera BNF Aprobada   
+        # Venta Billetera BNF Aprobada   
         df_temp = df.loc[(df['PRESTACION'] == 'STAR')
                             & (df['DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'BBF')
@@ -138,11 +138,11 @@ def Billeteras():
         else:
             print("[Correcto] Billetera BNF Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera BNF Reversada.xlsx')
-
         print("\n")
+    
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hugo un error con el modulo Billeteras\n")
+        print("Hubo un error en el modulo Billeteras\n")
     else:
         logging.info('Billeteras() se ejecutó correctamente')
     return 0

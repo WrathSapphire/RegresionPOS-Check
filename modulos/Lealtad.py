@@ -18,7 +18,8 @@ def Lealtad():
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == '    ')]
 
-        count_row = df_temp.shape[0]  
+        count_row = df_temp.shape[0] 
+
         if df_temp.empty:
             print("[Falta] Canje TC Lealtad Aprobada")
         else:
@@ -39,11 +40,11 @@ def Lealtad():
         else:
             print("[Correcto] Canje TC Lealtad Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Canje TC Lealtad Reversada.xlsx')
-
         print("\n")
+    
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hugo un error con el modulo Lealtad\n")
+        print("Hubo un error en el modulo Lealtad\n")
     else:
         logging.info('Lealtad() se ejecutó correctamente')
     return 0

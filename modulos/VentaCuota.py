@@ -17,7 +17,6 @@ def VentaCuota():
                          & (df['METODO'] == 90) 
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == '    ')]
-
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -32,7 +31,6 @@ def VentaCuota():
                          & (df['METODO'] == 90)
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == 'R001')]
-
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -41,15 +39,12 @@ def VentaCuota():
             print("[Correcto] Venta Cuota Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota Banda Reversada.xlsx')
 
-
         # Venta Cuota Chip Aprobada
-
         df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
                          & (df['CANT_CUOTA'] > 1)
                          & (df['METODO'] == 5) 
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == '    ')]
-
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -64,7 +59,6 @@ def VentaCuota():
                          & (df['METODO'] == 5)
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == 'R001')]
-
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -74,13 +68,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota Chip Reversada.xlsx')
 
         # Venta Cuota CTLS Aprobada
-
         df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
                          & (df['CANT_CUOTA'] > 1)
                          & (df['METODO'] == 7)
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == '    ')]
-
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -95,19 +87,18 @@ def VentaCuota():
                          & (df['METODO'] == 7)
                          & (df['COD_RE'] == 00)
                          & (df['COD_REEXT'] == 'R001')]
-
         count_row = df_temp.shape[0]
-
+        
         if df_temp.empty:
             print("[Falta] Venta Cuota CTLS Reversada")
         else:
             print("[Correcto] Venta Cuota CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota CTLS Reversada.xlsx')
-    
         print("\n")
+
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hugo un error con el modulo VentaCuota\n")
+        print("Hubo un error con el modulo VentaCuota\n")
     else:
         logging.info('VentaCuota() se ejecutó correctamente')
     return 0
