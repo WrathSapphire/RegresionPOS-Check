@@ -5,35 +5,33 @@
 
 import os
 import shutil
+import sys
 from datetime import datetime
-
-carpeta = datetime.now().strftime("Ejecución_%Y-%m-%d_%H-%M-%S")
-reporte = datetime.now().strftime("Reporte_%Y-%m-%d_%H-%M-%S")
-reporte = reporte + '.txt'
 
 def TextoASCII():
     f = open('.\\resources\ASCII.text', 'r')                         #Lee e imprime archivo ASCII.text
     file_contents = f.read()
     print (file_contents)
     f.close()
-    print("[Verificación de Casos de Prueba Regresión Express]\n")
+    print("\n\n[Verificación de Casos de Prueba Regresión Express]\n")
     return 0
 
-
 def Documentacion():
-    print("Hora de finalización "+ datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    carpeta = datetime.now().strftime("Ejecución_%Y-%m-%d_%H-%M-%S")
+    reporte = datetime.now().strftime("Reporte_%Y-%m-%d_%H-%M-%S")
+    reporte = reporte + '.txt'
     ruta = os.getcwd()
     archivos = os.listdir(ruta)
+    source = ".\\"
+    destination = '.\\tests'
+
     os.mkdir(carpeta)
+    os.rename('reporte.txt', reporte)                   #Una vez cerrado el archivo será renombrado
+
     for archivo in archivos:                            #Mueve los df generados a su carpeta correspondiente
         if (archivo.endswith('.xlsx') and archivo != 'MET001.xlsx'):
             shutil.move(os.path.join(ruta, archivo), carpeta)
-    return 0
 
-def MoverArchivos():
-    source = ".\\"
-    destination = '.\\tests'
-    os.rename('reporte.txt', reporte)                   #Una vez cerrado el archivo será renombrado
     if not os.path.exists("./tests"):
         os.makedirs("tests")                            #Si no existe el directorio tests, el mismo será creado
 
@@ -45,3 +43,4 @@ def MoverArchivos():
         if filename.startswith('Reporte') and filename.endswith('.txt'):
             shutil.move(os.path.join(source, filename), destination)
     return 0
+

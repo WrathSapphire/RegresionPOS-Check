@@ -163,3 +163,4 @@ cython_debug/
 *.txt
 *.bat
 
+resources/background.png
