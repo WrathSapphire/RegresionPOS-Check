@@ -23,14 +23,14 @@ class VentanaPrincipal:
         label1.place(x = 0,y = 0)
         #Etiqueta
         label2 = Label(master, text="Regresion POS Check v1.1",fg="white",font="Helvetica",bg="black")
-        label2.place(relx=0.5, rely=0.2, anchor=CENTER)
+        label2.place(relx=0.5, rely=0.3, anchor=CENTER)
 
         #Boton Ejecutar
         self.botonRun = tk.Button(master, text="Ejecutar", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
         self.botonRun.place(relx=0.5, rely=0.4, anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=2, width=20)
-        self.botonSalir.place(relx=0.5, rely=0.62    , anchor=CENTER)
+        self.botonSalir.place(relx=0.5, rely=0.55    , anchor=CENTER)
 
     def RegresionCheck(self):
         try:
