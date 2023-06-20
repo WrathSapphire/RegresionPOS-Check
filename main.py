@@ -4,6 +4,7 @@
 ##########################################################################################################
 
 import sys
+import os
 from modulos import *
 from datetime import datetime
 from tkinter import *
@@ -17,8 +18,12 @@ class VentanaPrincipal:
         self.master = master
         master.title("Regresion POS Check v1.1")
         master.geometry("330x200")
-        master.configure(bg="black")
-    
+
+        #Fondo
+        self.bg = PhotoImage(file = ".\\resources\\background.png")
+        label1 = Label(master, image = self.bg)
+        label1.place(x = 0,y = 0)
+
         #Boton Ejecutar
         self.botonRun = tk.Button(master, text="Ejecutar", command=self.RegresionCheck, height=2, width=20)
         self.botonRun.place(relx=0.5, rely=0.4, anchor=CENTER)
