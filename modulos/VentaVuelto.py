@@ -6,16 +6,16 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
 def VentaVuelto():
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####VentaVuelto####\n")
     try:
         # Venta Vuelto TD Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['COD_PAGO'] == 2)
-                         & (df['CASHBACK'] == 'S')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_MEDIO_PAGO'] == 2)
+                         & (df['CashBack'] == 'S')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
@@ -25,11 +25,11 @@ def VentaVuelto():
             df_temp.to_excel('Venta Vuelto TD Aprobada.xlsx')
 
         # Venta Vuelto TD Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['COD_PAGO'] == 2)
-                         & (df['CASHBACK'] == 'S')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_MEDIO_PAGO'] == 2)
+                         & (df['CashBack'] == 'S')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:

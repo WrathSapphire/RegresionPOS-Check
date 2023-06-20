@@ -6,19 +6,18 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
 def Billeteras(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####Billeteras####\n")
     try:
         # Venta Billetera ZIMPLE Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                         & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                          & (df['MARCA' ] == 'MIB')
-                         & (df['PRODUCTO' ] == 'MIB')
-                         & (df['METODO'] == '  ') 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+                         & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                         & (df['COD_PREFIJO'] == '  ') 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -28,13 +27,13 @@ def Billeteras():
             df_temp.to_excel('Billetera ZIMPLE Aprobada.xlsx')
 
         # Venta Billetera ZIMPLE Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                         & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                          & (df['MARCA' ] == 'MIB')
-                         & (df['PRODUCTO' ] == 'MIB')
-                         & (df['METODO'] == '  ') 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+                         & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                         & (df['COD_PREFIJO'] == '  ') 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -44,13 +43,13 @@ def Billeteras():
             df_temp.to_excel('Billetera ZIMPLE Reversada.xlsx')
 
         # Venta Billetera Vision Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'VIS')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == '    ')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -60,13 +59,13 @@ def Billeteras():
             df_temp.to_excel('Billetera Vision Aprobada.xlsx')
 
         # Venta Billetera Vision Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'VIS')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == 'R001')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -76,13 +75,13 @@ def Billeteras():
             df_temp.to_excel('Billetera Vision Reversada.xlsx')
 
         # Venta Billetera PJ Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'WPJ')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == '    ')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -92,13 +91,13 @@ def Billeteras():
             df_temp.to_excel('Billetera PJ Aprobada.xlsx')
 
         # Venta Billetera PJ Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'WPJ')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == 'R001')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -108,13 +107,13 @@ def Billeteras():
             df_temp.to_excel('Billetera PJ Reversada.xlsx')
 
         # Venta Billetera BNF Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'BBF')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == '    ')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -124,13 +123,13 @@ def Billeteras():
             df_temp.to_excel('Billetera BNF Aprobada.xlsx')
 
         # Venta Billetera BNF Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                            & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                             & (df['MARCA' ] == 'BBF')
-                            & (df['PRODUCTO' ] == 'MIB')
-                            & (df['METODO'] == '  ') 
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == 'R001')]
+                            & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
+                            & (df['COD_PREFIJO'] == '  ') 
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:

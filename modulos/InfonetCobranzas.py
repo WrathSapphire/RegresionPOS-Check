@@ -5,17 +5,17 @@
 
 import pandas as pd
 import logging
-df = pd.read_excel('.\\resources\MET001.xlsx')
 
 def InfonetCobranzas(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####InfonetCobranzas####\n")
     try:
         # Infonet Cobranzas 
-        df_temp = df.loc[(df['COD_TRAN'] == 72)
-                            & (df['SERVICIO'] == 'TIC')
-                            & (df['DISPOSITIVO'] == 'WEB')
-                            & (df['COD_RE'] == 00)
-                            & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_TRANSACCION'] == 72)
+                            & (df['ID_SERVICIO'] == 'TIC')
+                            & (df['COD_TIPO_DISPOSITIVO'] == 'WEB')
+                            & (df['COD_RESPUESTA'] == 00)
+                            & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:

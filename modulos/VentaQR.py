@@ -6,17 +6,16 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
 def VentaQR():
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####VentaQR####\n")
     try: 
         # Venta QR TC Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'TCQR')
-                         & (df['DISPOSITIVO'] == 'APP')
-                         & (df['METODO'] == 00) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
+                         & (df['COD_PREFIJO'] == 00) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -26,11 +25,11 @@ def VentaQR():
             df_temp.to_excel('Venta QR TC Aprobada.xlsx')
 
         # Venta QR TC Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'TCQR')
-                         & (df['DISPOSITIVO'] == 'APP')
-                         & (df['METODO'] == 00) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
+                         & (df['COD_PREFIJO'] == 00) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -40,11 +39,11 @@ def VentaQR():
             df_temp.to_excel('Venta QR TC Reversada.xlsx')
 
         # Venta QR TD Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'TDQR')
-                         & (df['DISPOSITIVO'] == 'APP')
-                         & (df['METODO'] == 00) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TDQR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
+                         & (df['COD_PREFIJO'] == 00) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -54,11 +53,11 @@ def VentaQR():
             df_temp.to_excel('Venta QR TD Aprobada.xlsx')
 
         # Venta QR TD Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'TDQR')
-                         & (df['DISPOSITIVO'] == 'APP')
-                         & (df['METODO'] == 00) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TDQR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
+                         & (df['COD_PREFIJO'] == 00) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:

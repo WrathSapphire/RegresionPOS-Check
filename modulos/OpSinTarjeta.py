@@ -6,19 +6,18 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
 def OpSinTarjeta(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####OpSinTarjeta####\n")
     try:
         # Venta Operaciones Sin Tarjeta Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                         & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                          & (df['MARCA'] == 'ENT')
-                         & (df['PRODUCTO'] == 'PMO')
-                         & (df['METODO'] == '  ') 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+                         & (df['PRODUCTO_DE_LA_MARCA'] == 'PMO')
+                         & (df['COD_PREFIJO'] == '  ') 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -28,13 +27,13 @@ def OpSinTarjeta():
             df_temp.to_excel('Op Sin Tarjeta Aprobada.xlsx')
 
         # Venta Operaciones Sin Tarjeta Reversada   
-        df_temp = df.loc[(df['PRESTACION'] == 'STAR')
-                         & (df['DISPOSITIVO'] == 'POS')
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
+                         & (df['COD_TIPO_DISPOSITIVO'] == 'POS')
                          & (df['MARCA'] == 'ENT')
-                         & (df['PRODUCTO'] == 'PMO')
-                         & (df['METODO'] == '  ') 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+                         & (df['PRODUCTO_DE_LA_MARCA'] == 'PMO')
+                         & (df['COD_PREFIJO'] == '  ') 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:

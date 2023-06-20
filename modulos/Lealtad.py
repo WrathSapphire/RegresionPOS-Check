@@ -6,17 +6,16 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
-def Lealtad(): 
+def Lealtad():
+    df = pd.read_excel('.\\resources\MET001.xlsx') 
     print("####Lealtad####\n")
     try:
         # Canje TC Lealtad Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['COD_TRAN'] == 76)                     
-                         & (df['METODO'] == '  ')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_TRANSACCION'] == 76)                     
+                         & (df['COD_PREFIJO'] == '  ')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
 
         count_row = df_temp.shape[0] 
 
@@ -28,11 +27,11 @@ def Lealtad():
 
 
         # Canje TC Lealtad Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['COD_TRAN'] == 76)
-                         & (df['METODO'] == '  ')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_TRANSACCION'] == 76)
+                         & (df['COD_PREFIJO'] == '  ')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:

@@ -6,17 +6,16 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
-def VentaCuota(): 
+def VentaCuota():
+    df = pd.read_excel('.\\resources\MET001.xlsx') 
     print("####VentaCuota####\n")
     try:
         # Venta Cuota Banda Aprobada   
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 90) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 90) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -26,11 +25,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota Banda Aprobada.xlsx')
 
         # Venta Cuota Banda Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 90)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -40,11 +39,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota Banda Reversada.xlsx')
 
         # Venta Cuota Chip Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 5) 
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 5) 
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -54,11 +53,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota Chip Aprobada.xlsx')
 
         # Venta Cuota Chip Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 5)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -68,11 +67,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota Chip Reversada.xlsx')
 
         # Venta Cuota CTLS Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -82,11 +81,11 @@ def VentaCuota():
             df_temp.to_excel('Venta Cuota CTLS Aprobada.xlsx')
 
         # Venta Cuota CTLS Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['CANT_CUOTA'] > 1)
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['NRO_CUOTA'] > 1)
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
         
         if df_temp.empty:

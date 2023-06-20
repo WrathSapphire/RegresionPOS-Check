@@ -6,15 +6,14 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
 def VentaTarjetasInternacionales(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####VentaTarjetasInternacionales####\n")
     try:
         # Venta Tarjeta Internacional Aprobada
-        df_temp = df.loc[(df['LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -24,9 +23,9 @@ def VentaTarjetasInternacionales():
             df_temp.to_excel('Venta Tarjeta Internacional Aprobada.xlsx')
 
         # Venta Tarjeta Internacional Reversada
-        df_temp = df.loc[(df['LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:

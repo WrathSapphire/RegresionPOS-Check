@@ -6,15 +6,15 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
 
 def VentaTDTC(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####VentaTDTC####\n")
     try:
         # Venta TD Banda Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 90) & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 90) & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -24,10 +24,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TD Banda Aprobada.xlsx')
 
         # Venta TD Banda Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 90)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -37,10 +37,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TD Banda Reversada.xlsx')
 
         # Venta TC Banda Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 90)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -50,10 +50,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TC Banda Aprobada.xlsx')
 
         # Venta TC Banda Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 90)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
@@ -63,10 +63,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TC Banda Reversada.xlsx')
 
         # Venta TD Chip Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 5)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -76,10 +76,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TD Chip Aprobada.xlsx')
 
         # Venta TD Chip Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 5)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
@@ -89,10 +89,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TD Chip Reversada.xlsx')
 
         # Venta TC Chip Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 5)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -102,10 +102,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TC Chip Aprobada.xlsx')
 
         # Venta TC Chip Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 5)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
@@ -115,10 +115,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TC Chip Reversada.xlsx')
 
         # Venta TD CTLS Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -129,10 +129,10 @@ def VentaTDTC():
 
         # Venta TD CTLS Reversada
 
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
@@ -142,10 +142,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TD CTLS Reversada.xlsx')
 
         # Venta TC CTLS Aprobada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == '    ')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
@@ -155,10 +155,10 @@ def VentaTDTC():
             df_temp.to_excel('Venta TC CTLS Aprobada.xlsx')
 
         # Venta TC CTLS Reversada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')
-                         & (df['METODO'] == 7)
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R001')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
+                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:

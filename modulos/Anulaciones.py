@@ -6,15 +6,14 @@
 import pandas as pd
 import logging
 
-df = pd.read_excel('.\\resources\MET001.xlsx')
-
 def Anulaciones(): 
+    df = pd.read_excel('.\\resources\MET001.xlsx')
     print("####Anulaciones####\n")
     try:
          # Venta TD Anulada
-        df_temp = df.loc[(df['PRESTACION'] == 'TD  ')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R006')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]
 
@@ -25,9 +24,9 @@ def Anulaciones():
             df_temp.to_excel('Venta TD Anulada.xlsx')
 
         # Venta TC Anulada
-        df_temp = df.loc[(df['PRESTACION'] == 'TC  ')         
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R006')]
+        df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')         
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
@@ -37,9 +36,9 @@ def Anulaciones():
             df_temp.to_excel('Venta TC Anulada.xlsx')
 
         # Venta Tarjeta Internacional Anulada
-        df_temp = df.loc[(df['LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RE'] == 00)
-                         & (df['COD_REEXT'] == 'R006')]
+        df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
+                         & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:
@@ -52,7 +51,7 @@ def Anulaciones():
         # Para correcto funcionamiento del módulo es necesario almacenar la columna NRO_TARJETA como texto
         df_temp = df.loc[((df['NRO_TARJETA'].str.contains('5585480009064136'))          #TC 
                           | (df['NRO_TARJETA'].str.contains('5585490001200661')))       #TD
-                          & (df['COD_REEXT'] == 'R006')]
+                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:
