@@ -15,16 +15,16 @@ logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEB
 class VentanaPrincipal:
     def __init__(self, master):
         self.master = master
-        master.title("Bienvenido")
-        master.geometry("250x150")
+        master.title("Regresion POS Check v1.1")
+        master.geometry("330x200")
         master.configure(bg="black")
     
-
+        #Boton Ejecutar
         self.botonRun = tk.Button(master, text="Ejecutar", command=self.RegresionCheck, height=2, width=20)
-        self.botonRun.place(relx=0.5, rely=0.5, anchor=CENTER)
-
-        self.botonSalir = tk.Button(master, text="Salir", command=master.quit, height=1, width=5)
-        self.botonSalir.place(relx=0.5, rely=0.8    , anchor=CENTER)
+        self.botonRun.place(relx=0.5, rely=0.4, anchor=CENTER)
+        #Boton Salir
+        self.botonSalir = tk.Button(master, text="Salir", command=master.quit, height=2, width=20)
+        self.botonSalir.place(relx=0.5, rely=0.62    , anchor=CENTER)
 
     def RegresionCheck(self):
         try:
