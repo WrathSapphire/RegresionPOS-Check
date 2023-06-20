@@ -27,10 +27,10 @@ class VentanaPrincipal:
 
         #Boton Ejecutar
         self.botonRun = tk.Button(master, text="Ejecutar", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
-        self.botonRun.place(relx=0.5, rely=0.43, anchor=CENTER)
+        self.botonRun.place(relx=0.5, rely=0.45, anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=2, width=20)
-        self.botonSalir.place(relx=0.5, rely=0.57    , anchor=CENTER)
+        self.botonSalir.place(relx=0.5, rely=0.61    , anchor=CENTER)
 
     def RegresionCheck(self):
         try:
