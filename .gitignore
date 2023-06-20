@@ -159,8 +159,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 *.log
-*.xlsx
 *.txt
-*.bat
+#*.xlsx
+#*.bat
 
-resources/background.png
+#Carpeta de Tests
+tests/ 
+
+
