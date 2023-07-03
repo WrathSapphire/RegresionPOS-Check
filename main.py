@@ -9,14 +9,24 @@ from datetime import datetime
 from tkinter import *
 import tkinter as tk
 import logging
+import pandas as pd
+import warnings
+from openpyxl.styles import NamedStyle
 logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s:%(message)s')
+warnings.simplefilter("ignore")
+NamedStyle.font = None
 
 class VentanaPrincipal:
     def JavaConnect(self):
         os.system('java -jar .\\resources\javaConnect.jar')
+        df1 = pd.read_excel('MET001Test.xlsx')
+        df2 = pd.read_excel('MET001Desa.xlsx')
+        df = pd.concat([df1, df2])
+        os.remove('MET001Test.xlsx')
+        os.remove('MET001Desa.xlsx')
+        df.to_excel('MET001.xlsx', index=False)
         os.replace('MET001.xlsx', '.\\resources\\MET001.xlsx')
-        print("Se generó el archivo MET001.xlsx")
 
     def __init__(self, master):
         self.master = master
@@ -42,10 +52,8 @@ class VentanaPrincipal:
 
     def RegresionCheck(self):
         try:
-            print("Se ejecuta RegresionCheck")
             sys.stdout = open(r'.\reporte.txt', 'w')        #Comienza a escribir todo lo impreso en reporte.txt
             TextoASCII()                                    #Imprime el texto ASCII definido
-            SheetError()                                    #Busca resolver la advertencia en openpyxl
             VentaTDTC()
             VentaCuota()
             VentaQR()
