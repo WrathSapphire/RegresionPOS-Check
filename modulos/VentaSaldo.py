@@ -13,7 +13,7 @@ def VentaSaldo():
         # Venta Saldo TD Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -27,7 +27,7 @@ def VentaSaldo():
         # Venta Saldo TD Banda Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -41,7 +41,7 @@ def VentaSaldo():
         # Venta Saldo TC Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -55,7 +55,7 @@ def VentaSaldo():
         # Venta Saldo TC Banda Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -69,7 +69,7 @@ def VentaSaldo():
         # Venta Saldo TD Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -83,7 +83,7 @@ def VentaSaldo():
         # Venta Saldo TD Chip Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -97,7 +97,7 @@ def VentaSaldo():
         # Venta Saldo TC Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -111,7 +111,7 @@ def VentaSaldo():
         # Venta Saldo TC Chip Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -125,7 +125,7 @@ def VentaSaldo():
         # Venta Saldo TD CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -139,7 +139,7 @@ def VentaSaldo():
         # Venta Saldo TD CTLS Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 2)
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -153,7 +153,7 @@ def VentaSaldo():
         # Venta Saldo TC CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -167,7 +167,7 @@ def VentaSaldo():
         # Venta Saldo TC CTLS Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
                          & (df['COD_MEDIO_PAGO'] == 1)
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]

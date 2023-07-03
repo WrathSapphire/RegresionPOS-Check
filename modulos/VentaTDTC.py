@@ -13,7 +13,8 @@ def VentaTDTC():
     try:
         # Venta TD Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 90) & (df['COD_RESPUESTA'] == 00)
+                         & (df['COD_PREFIJO'] == '90') 
+                         & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
@@ -25,7 +26,7 @@ def VentaTDTC():
 
         # Venta TD Banda Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -38,7 +39,7 @@ def VentaTDTC():
 
         # Venta TC Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
@@ -51,7 +52,7 @@ def VentaTDTC():
 
         # Venta TC Banda Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 90)
+                         & (df['COD_PREFIJO'] == '90')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
@@ -64,7 +65,7 @@ def VentaTDTC():
 
         # Venta TD Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
@@ -77,7 +78,7 @@ def VentaTDTC():
 
         # Venta TD Chip Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
@@ -90,7 +91,7 @@ def VentaTDTC():
 
         # Venta TC Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
@@ -103,7 +104,7 @@ def VentaTDTC():
 
         # Venta TC Chip Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 5)
+                         & (df['COD_PREFIJO'] == '05')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
@@ -116,7 +117,7 @@ def VentaTDTC():
 
         # Venta TD CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
@@ -130,7 +131,7 @@ def VentaTDTC():
         # Venta TD CTLS Reversada
 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
@@ -143,7 +144,7 @@ def VentaTDTC():
 
         # Venta TC CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
@@ -156,7 +157,7 @@ def VentaTDTC():
 
         # Venta TC CTLS Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  

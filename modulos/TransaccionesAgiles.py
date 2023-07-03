@@ -12,7 +12,7 @@ def TransaccionesAgiles():
     try:
         # Transacción Ágil TD Aprobada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
                          & (df['CODIGO_OPERACION'] == 1)]
@@ -26,7 +26,7 @@ def TransaccionesAgiles():
 
         # Transacción Ágil TD PIN Aprobada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
                          & (df['CODIGO_OPERACION'] == 0)]
@@ -40,7 +40,7 @@ def TransaccionesAgiles():
 
         # Transacción Ágil TD Reversada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')
                          & (df['CODIGO_OPERACION'] == 1)]
@@ -54,7 +54,7 @@ def TransaccionesAgiles():
 
         # Transacción Ágil TC Aprobada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
                          & (df['CODIGO_OPERACION'] == 1)]
@@ -68,7 +68,7 @@ def TransaccionesAgiles():
 
         # Transacción Ágil TC PIN Aprobada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
                          & (df['CODIGO_OPERACION'] == 0)]
@@ -82,7 +82,7 @@ def TransaccionesAgiles():
 
         # Transacción Ágil TC Reversada 
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_PREFIJO'] == 7)
+                         & (df['COD_PREFIJO'] == '07')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')
                          & (df['CODIGO_OPERACION'] == 1)]
