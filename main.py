@@ -13,29 +13,39 @@ logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEB
                     format='%(asctime)s %(levelname)s:%(message)s')
 
 class VentanaPrincipal:
+    def JavaConnect(self):
+        os.system('java -jar .\\resources\javaConnect.jar')
+        os.replace('MET001.xlsx', '.\\resources\\MET001.xlsx')
+        print("Se generó el archivo MET001.xlsx")
+
     def __init__(self, master):
         self.master = master
-        master.title("Regresion POS Check v1.1")
+        master.title("Regresion POS Check v1.2")
         master.geometry("600x400")
         #Fondo
         self.bg = PhotoImage(file = ".\\resources\\background.png")
         label1 = Label(master, image = self.bg)
         label1.place(x = 0,y = 0)
         #Etiqueta
-        label2 = Label(master, text="Regresion POS Check v1.1",fg="white",font="Helvetica",bg="black")
+        label2 = Label(master, text="Regresion POS Check v1.2",fg="white",font="Helvetica",bg="black")
         label2.place(relx=0.5, rely=0.32, anchor=CENTER)
 
-        #Boton Ejecutar
-        self.botonRun = tk.Button(master, text="Ejecutar", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
+        #Boton Ejecutar Casos de Prueba
+        self.botonRun = tk.Button(master, text="Regresión Check", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
         self.botonRun.place(relx=0.5, rely=0.45, anchor=CENTER)
+        #Boton Generar Excel
+        self.botonSalir = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.JavaConnect, height=2, width=20)
+        self.botonSalir.place(relx=0.5, rely=0.60    , anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=2, width=20)
-        self.botonSalir.place(relx=0.5, rely=0.61    , anchor=CENTER)
+        self.botonSalir.place(relx=0.5, rely=0.75    , anchor=CENTER)
 
     def RegresionCheck(self):
         try:
+            print("Se ejecuta RegresionCheck")
             sys.stdout = open(r'.\reporte.txt', 'w')        #Comienza a escribir todo lo impreso en reporte.txt
             TextoASCII()                                    #Imprime el texto ASCII definido
+            SheetError()                                    #Busca resolver la advertencia en openpyxl
             VentaTDTC()
             VentaCuota()
             VentaQR()
