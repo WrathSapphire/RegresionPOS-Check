@@ -5,8 +5,18 @@
 
 import os
 import shutil
-import sys
 from datetime import datetime
+import openpyxl
+
+#Busca resolver la advertencia en openpyxl: 
+#Warning : "Workbook contains no default style, apply openpyxl's default "
+
+def SheetError():                 
+    archivoExcel = r'.\\resources\MET001.xlsx'
+    ss = openpyxl.load_workbook(archivoExcel)
+    ss_sheet = ss.get_sheet_by_name('hoja1')
+    ss_sheet.title = 'MET001'
+    ss.save(archivoExcel)
 
 def TextoASCII():
     f = open('.\\resources\ASCII.text', 'r')                         #Lee e imprime archivo ASCII.text
