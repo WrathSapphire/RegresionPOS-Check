@@ -11,6 +11,7 @@ import tkinter as tk
 import logging
 import pandas as pd
 import warnings
+from tkinter import messagebox
 from openpyxl.styles import NamedStyle
 logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s:%(message)s')
@@ -18,7 +19,9 @@ warnings.simplefilter("ignore")
 NamedStyle.font = None
 
 class VentanaPrincipal:
+    
     def JavaConnect(self):
+        messagebox.showinfo("Atencion!", "Favor ingresar credenciales en consola!")
         os.system('java -jar .\\resources\javaConnect.jar')
         df1 = pd.read_excel('MET001Test.xlsx')
         df2 = pd.read_excel('MET001Desa.xlsx')
@@ -44,8 +47,8 @@ class VentanaPrincipal:
         self.botonRun = tk.Button(master, text="Regresión Check", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
         self.botonRun.place(relx=0.5, rely=0.45, anchor=CENTER)
         #Boton Generar Excel
-        self.botonSalir = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.JavaConnect, height=2, width=20)
-        self.botonSalir.place(relx=0.5, rely=0.60    , anchor=CENTER)
+        self.botonExcel = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.JavaConnect, height=2, width=20)
+        self.botonExcel.place(relx=0.5, rely=0.60    , anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=2, width=20)
         self.botonSalir.place(relx=0.5, rely=0.75    , anchor=CENTER)
