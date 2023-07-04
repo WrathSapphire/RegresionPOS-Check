@@ -46,13 +46,13 @@ class VentanaPrincipal:
 
         #Boton Ejecutar Casos de Prueba
         self.botonRun = tk.Button(master, text="Regresión Check", font="Helvetica", command=self.RegresionCheck, height=2, width=20)
-        self.botonRun.place(relx=0.5, rely=0.45, anchor=CENTER)
+        self.botonRun.place(x=300, y=180, anchor=CENTER)
         #Boton Generar Excel
         self.botonExcel = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.JavaConnect, height=2, width=20)
-        self.botonExcel.place(relx=0.5, rely=0.60    , anchor=CENTER)
+        self.botonExcel.place(x=300, y=245, anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=2, width=20)
-        self.botonSalir.place(relx=0.5, rely=0.75    , anchor=CENTER)
+        self.botonSalir.place(x=300, y=310, anchor=CENTER)
 
     def RegresionCheck(self):
         try:
