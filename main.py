@@ -35,6 +35,7 @@ class VentanaPrincipal:
         self.master = master
         master.title("Regresion POS Check v1.2")
         master.geometry("600x400")
+        master.resizable(False,False)
         #Fondo
         self.bg = PhotoImage(file = ".\\resources\\background.png")
         label1 = Label(master, image = self.bg)
