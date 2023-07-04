@@ -163,4 +163,4 @@ cython_debug/
 resources/*.xlsx
 tests/ 
 resources/MET001.xlsx
-resources/javaConnect.jar
+*.jar
