@@ -3,20 +3,20 @@
 # QA: Javier Bernal                                                                                      #
 ##########################################################################################################
 
-import sys
 from modulos import *
-from datetime import datetime
 from tkinter import *
+from tkinter import messagebox
 import tkinter as tk
 import logging
 import pandas as pd
 import warnings
-from tkinter import messagebox
 from openpyxl.styles import NamedStyle
+
 logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s:%(message)s')
 warnings.simplefilter("ignore")
 NamedStyle.font = None
+
 
 class VentanaPrincipal:
     
@@ -56,8 +56,7 @@ class VentanaPrincipal:
 
     def RegresionCheck(self):
         try:
-            sys.stdout = open(r'.\reporte.txt', 'w')        #Comienza a escribir todo lo impreso en reporte.txt
-            TextoASCII()                                    #Imprime el texto ASCII definido
+            TextoASCII()                                    
             VentaTDTC()
             VentaCuota()
             VentaQR()
@@ -70,10 +69,7 @@ class VentanaPrincipal:
             InfonetCobranzas()
             Anulaciones() 
             Lealtad() 
-            print("Hora de finalización "+ datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-            sys.stdout.close()                              #Deja de escribir y cierra reporte.txt
-            Documentacion()                                 #Crea carpeta c/ hora sistema y mueve los df exportados...
-                                                            #Mueve carpetas y reportes a ./Tests
+            Documentacion()                                 
         except Exception as e:
             logging.error(f'Error en la ejecución del programa!\n{e}', exc_info=True)
         else:

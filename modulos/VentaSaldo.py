@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def VentaSaldo():
+    mensajes= []
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####VentaSaldo####\n")
+    mensajes.append(f"####VentaSaldo####\n")
     try:
         # Venta Saldo TD Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'VMTE')
@@ -19,9 +20,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD Banda Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TD Banda Aprobada")
         else:
-            print("[Correcto] Venta Saldo TD Banda Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD Banda Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD Banda Aprobada.xlsx')
 
         # Venta Saldo TD Banda Reversada
@@ -33,9 +34,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD Banda Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TD Banda Reversada")
         else:
-            print("[Correcto] Venta Saldo TD Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD Banda Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD Banda Reversada.xlsx')
 
         # Venta Saldo TC Banda Aprobada
@@ -47,9 +48,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC Banda Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TC Banda Aprobada")
         else:
-            print("[Correcto] Venta Saldo TC Banda Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC Banda Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC Banda Aprobada.xlsx')
 
         # Venta Saldo TC Banda Reversada
@@ -61,9 +62,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC Banda Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TC Banda Reversada")
         else:
-            print("[Correcto] Venta Saldo TC Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC Banda Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC Banda Reversada.xlsx')
 
         # Venta Saldo TD Chip Aprobada
@@ -75,9 +76,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD Chip Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TD Chip Aprobada")
         else:
-            print("[Correcto] Venta Saldo TD Chip Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD Chip Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD Chip Aprobada.xlsx')
 
         # Venta Saldo TD Chip Reversada
@@ -89,9 +90,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD Chip Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TD Chip Reversada")
         else:
-            print("[Correcto] Venta Saldo TD Chip Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD Chip Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD Chip Reversada.xlsx')
 
         # Venta Saldo TC Chip Aprobada
@@ -103,9 +104,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC Chip Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TC Chip Aprobada")
         else:
-            print("[Correcto] Venta Saldo TC Chip Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC Chip Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC Chip Aprobada.xlsx')
 
         # Venta Saldo TC Chip Reversada
@@ -117,9 +118,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC Chip Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TC Chip Reversada")
         else:
-            print("[Correcto] Venta Saldo TC Chip Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC Chip Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC Chip Reversada.xlsx')
 
         # Venta Saldo TD CTLS Aprobada
@@ -131,9 +132,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD CTLS Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TD CTLS Aprobada")
         else:
-            print("[Correcto] Venta Saldo TD CTLS Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD CTLS Aprobada.xlsx')
 
         # Venta Saldo TD CTLS Reversada
@@ -145,9 +146,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TD CTLS Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TD CTLS Reversada")
         else:
-            print("[Correcto] Venta Saldo TD CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TD CTLS Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TD CTLS Reversada.xlsx')
 
         # Venta Saldo TC CTLS Aprobada
@@ -159,9 +160,9 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC CTLS Aprobada")
+            mensajes.append(f"[Falta] Venta Saldo TC CTLS Aprobada")
         else:
-            print("[Correcto] Venta Saldo TC CTLS Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC CTLS Aprobada.xlsx')
 
         # Venta Saldo TC CTLS Reversada
@@ -173,15 +174,20 @@ def VentaSaldo():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Saldo TC CTLS Reversada")
+            mensajes.append(f"[Falta] Venta Saldo TC CTLS Reversada")
         else:
-            print("[Correcto] Venta Saldo TC CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Saldo TC CTLS Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Saldo TC CTLS Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaSaldo\n")
+        mensajes.append(f"Hubo un error con el modulo VentaSaldo\n")
     else:
         logging.info('VentaSaldo() se ejecutó correctamente')
     return 0

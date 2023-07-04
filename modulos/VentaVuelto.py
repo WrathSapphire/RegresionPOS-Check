@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def VentaVuelto():
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####VentaVuelto####\n")
+    mensajes.append(f"####VentaVuelto####\n")
     try:
         # Venta Vuelto TD Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
@@ -19,9 +20,9 @@ def VentaVuelto():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Vuelto TD Aprobada")
+            mensajes.append(f"[Falta] Venta Vuelto TD Aprobada")
         else:
-            print("[Correcto] Venta Vuelto TD Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Vuelto TD Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Vuelto TD Aprobada.xlsx')
 
         # Venta Vuelto TD Reversada
@@ -33,15 +34,20 @@ def VentaVuelto():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Vuelto TD Reversada")
+            mensajes.append(f"[Falta] Venta Vuelto TD Reversada")
         else:
-            print("[Correcto] Venta Vuelto TD Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Vuelto TD Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Vuelto TD Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaVuelto\n")
+        mensajes.append(f"Hubo un error con el modulo VentaVuelto\n")
     else:
         logging.info('VentaVuelto() se ejecutó correctamente')
     return 0

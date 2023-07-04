@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def VentaQR():
+    mensajes= []
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####VentaQR####\n")
+    mensajes.append(f"####VentaQR####\n")
     try: 
         # Venta QR TC Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
@@ -19,9 +20,9 @@ def VentaQR():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta QR TC Aprobada")
+            mensajes.append(f"[Falta] Venta QR TC Aprobada")
         else:
-            print("[Correcto] Venta QR TC Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta QR TC Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta QR TC Aprobada.xlsx')
 
         # Venta QR TC Reversada   
@@ -33,9 +34,9 @@ def VentaQR():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta QR TC Reversada")
+            mensajes.append(f"[Falta] Venta QR TC Reversada")
         else:
-            print("[Correcto] Venta QR TC Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta QR TC Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta QR TC Reversada.xlsx')
 
         # Venta QR TD Aprobada   
@@ -47,9 +48,9 @@ def VentaQR():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta QR TD Aprobada")
+            mensajes.append(f"[Falta] Venta QR TD Aprobada")
         else:
-            print("[Correcto] Venta QR TD Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta QR TD Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta QR TD Aprobada.xlsx')
 
         # Venta QR TD Reversada   
@@ -61,15 +62,20 @@ def VentaQR():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta QR TD Reversada")
+            mensajes.append(f"[Falta] Venta QR TD Reversada")
         else:
-            print("[Correcto] Venta QR TD Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta QR TD Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta QR TD Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+		
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaQR\n")
+        mensajes.append(f"Hubo un error con el modulo VentaQR\n")
     else:
         logging.info('VentaQR() se ejecutó correctamente')
     return 0

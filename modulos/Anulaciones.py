@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def Anulaciones(): 
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####Anulaciones####\n")
+    mensajes.append(f"####Anulaciones####\n")
     try:
          # Venta TD Anulada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
@@ -18,9 +19,9 @@ def Anulaciones():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta TD Anulada")
+            mensajes.append(f"[Falta] Venta TD Anulada")
         else:
-            print("[Correcto] Venta TD Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD Anulada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD Anulada.xlsx')
 
         # Venta TC Anulada
@@ -30,9 +31,9 @@ def Anulaciones():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TC Anulada")
+            mensajes.append(f"[Falta] Venta TC Anulada")
         else:
-            print("[Correcto] Venta TC Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC Anulada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC Anulada.xlsx')
 
         # Venta Tarjeta Internacional Anulada
@@ -42,9 +43,9 @@ def Anulaciones():
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:
-            print("[Falta] Venta Tarjeta Internacional Anulada [Simulador, DESA]")
+            mensajes.append(f"[Falta] Venta Tarjeta Internacional Anulada [Simulador, DESA]")
         else:
-            print("[Correcto] Venta Tarjeta Internacional Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Tarjeta Internacional Anulada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Anulada.xlsx')
 
         # Venta Tarjeta Otra Procesadora (UENO) Anulada
@@ -55,15 +56,20 @@ def Anulaciones():
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:
-            print("[Falta] Venta Tarjeta Otra Procesadora (UENO) Anulada")
+            mensajes.append(f"[Falta] Venta Tarjeta Otra Procesadora (UENO) Anulada")
         else:
-            print("[Correcto] Venta Tarjeta Otra Procesadora (UENO) Anulada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Tarjeta Otra Procesadora (UENO) Anulada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Otra Procesadora (UENO) Anulada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
 
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error en el modulo Anulaciones\n")
+        mensajes.append(f"Hubo un error en el modulo Anulaciones\n")
 
     else:
         logging.info('Anulaciones() se ejecutó correctamente')

@@ -8,14 +8,24 @@ import shutil
 from datetime import datetime
 
 def TextoASCII():
-    f = open('.\\resources\ASCII.text', 'r')                         #Lee e imprime archivo ASCII.text
-    file_contents = f.read()
-    print (file_contents)
-    f.close()
-    print("\n\n[Verificación de Casos de Prueba Regresión Express]\n")
+    mensajes= ["\n\n[Verificación de Casos de Prueba Regresión Express]\n"]                                                            
+    with open('.\\resources\ASCII.text', 'r') as file:                      #Lee archivo ASCII.text
+        ascii = file.read()
+    file.close
+
+    with open('reporte.txt', 'a') as file:
+        file.write(str(ascii+"\n"))                                                   #Imprime archivo ASCII
+        for mensaje in mensajes:
+            file.write("%s\n" % mensaje)
+    file.close
     return 0
 
 def Documentacion():
+    mensajes=[]
+    mensajes.append(f"Hora de finalización "+ datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    with open('reporte.txt', 'a') as file:
+            file.write(str(mensajes))                                     #Imprime mensajes
+    file.close
     carpeta = datetime.now().strftime("Ejecución_%Y-%m-%d_%H-%M-%S")
     reporte = datetime.now().strftime("Reporte_%Y-%m-%d_%H-%M-%S")
     reporte = reporte + '.txt'
@@ -41,5 +51,9 @@ def Documentacion():
     for filename in os.listdir(source):                 #Mueve archivos .txt
         if filename.startswith('Reporte') and filename.endswith('.txt'):
             shutil.move(os.path.join(source, filename), destination)
+
+    ruta_reporte = os.path.join('.\\tests\\', reporte)
+    os.system('notepad.exe ' + ruta_reporte)
+
     return 0
 

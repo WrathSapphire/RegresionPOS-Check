@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def Lealtad():
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx') 
-    print("####Lealtad####\n")
+    mensajes.append(f"####Lealtad####\n")
     try:
         # Canje TC Lealtad Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
@@ -20,9 +21,9 @@ def Lealtad():
         count_row = df_temp.shape[0] 
 
         if df_temp.empty:
-            print("[Falta] Canje TC Lealtad Aprobada")
+            mensajes.append(f"[Falta] Canje TC Lealtad Aprobada")
         else:
-            print("[Correcto] Canje TC Lealtad Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Canje TC Lealtad Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Canje TC Lealtad Aprobada.xlsx')
 
 
@@ -35,15 +36,20 @@ def Lealtad():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Canje TC Lealtad Reversada")
+            mensajes.append(f"[Falta] Canje TC Lealtad Reversada")
         else:
-            print("[Correcto] Canje TC Lealtad Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Canje TC Lealtad Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Canje TC Lealtad Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error en el modulo Lealtad\n")
+        mensajes.append(f"Hubo un error en el modulo Lealtad\n")
     else:
         logging.info('Lealtad() se ejecutó correctamente')
     return 0

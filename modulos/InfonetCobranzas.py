@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def InfonetCobranzas(): 
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####InfonetCobranzas####\n")
+    mensajes.append(f"####InfonetCobranzas####\n")
     try:
         # Infonet Cobranzas 
         df_temp = df.loc[(df['COD_TRANSACCION'] == 72)
@@ -19,15 +20,20 @@ def InfonetCobranzas():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Infonet Cobranzas")
+            mensajes.append(f"[Falta] Infonet Cobranzas")
         else:
-            print("[Correcto] Infonet Cobranzas", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Infonet Cobranzas | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Infonet Cobranzas.xlsx')
-        print('\n')
+        mensajes.append(f'\n')
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error en el modulo Infonet Cobranzas\n")
+        mensajes.append(f"Hubo un error en el modulo Infonet Cobranzas\n")
     else:
         logging.info('InfonetCobranzas() se ejecutó correctamente')
 

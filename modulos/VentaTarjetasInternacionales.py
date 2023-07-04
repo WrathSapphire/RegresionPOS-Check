@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def VentaTarjetasInternacionales(): 
+    mensajes= []
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####VentaTarjetasInternacionales####\n")
+    mensajes.append(f"####VentaTarjetasInternacionales####\n")
     try:
         # Venta Tarjeta Internacional Aprobada
         df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
@@ -17,9 +18,9 @@ def VentaTarjetasInternacionales():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta Tarjeta Internacional Aprobada [Simulador, DESA]")
+            mensajes.append(f"[Falta] Venta Tarjeta Internacional Aprobada [Simulador, DESA]")
         else:
-            print("[Correcto] Venta Tarjeta Internacional Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Tarjeta Internacional Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Aprobada.xlsx')
 
         # Venta Tarjeta Internacional Reversada
@@ -29,15 +30,20 @@ def VentaTarjetasInternacionales():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta Tarjeta Internacional Reversada [Simulador, DESA]")
+            mensajes.append(f"[Falta] Venta Tarjeta Internacional Reversada [Simulador, DESA]")
         else:
-            print("[Correcto] Venta Tarjeta Internacional Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Tarjeta Internacional Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+        
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaTarjetasInternacionales\n")
+        mensajes.append(f"Hubo un error con el modulo VentaTarjetasInternacionales\n")
     else:
         logging.info('VentaTarjetasInternacionales() se ejecutó correctamente')
     return 0

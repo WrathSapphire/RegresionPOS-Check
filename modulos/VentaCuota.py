@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def VentaCuota():
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx') 
-    print("####VentaCuota####\n")
+    mensajes.append(f"####VentaCuota####\n")
     try:
         # Venta Cuota Banda Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
@@ -19,9 +20,9 @@ def VentaCuota():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Cuota Banda Aprobada")
+            mensajes.append(f"[Falta] Venta Cuota Banda Aprobada")
         else:
-            print("[Correcto] Venta Cuota Banda Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota Banda Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota Banda Aprobada.xlsx')
 
         # Venta Cuota Banda Reversada
@@ -33,9 +34,9 @@ def VentaCuota():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Cuota Banda Reversada")
+            mensajes.append(f"[Falta] Venta Cuota Banda Reversada")
         else:
-            print("[Correcto] Venta Cuota Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota Banda Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota Banda Reversada.xlsx')
 
         # Venta Cuota Chip Aprobada
@@ -47,9 +48,9 @@ def VentaCuota():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Cuota Chip Aprobada")
+            mensajes.append(f"[Falta] Venta Cuota Chip Aprobada")
         else:
-            print("[Correcto] Venta Cuota Chip Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota Chip Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota Chip Aprobada.xlsx')
 
         # Venta Cuota Chip Reversada
@@ -61,9 +62,9 @@ def VentaCuota():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Cuota Chip Reversada")
+            mensajes.append(f"[Falta] Venta Cuota Chip Reversada")
         else:
-            print("[Correcto] Venta Cuota Chip Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota Chip Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota Chip Reversada.xlsx')
 
         # Venta Cuota CTLS Aprobada
@@ -75,9 +76,9 @@ def VentaCuota():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta Cuota CTLS Aprobada")
+            mensajes.append(f"[Falta] Venta Cuota CTLS Aprobada")
         else:
-            print("[Correcto] Venta Cuota CTLS Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota CTLS Aprobada.xlsx')
 
         # Venta Cuota CTLS Reversada
@@ -89,15 +90,20 @@ def VentaCuota():
         count_row = df_temp.shape[0]
         
         if df_temp.empty:
-            print("[Falta] Venta Cuota CTLS Reversada")
+            mensajes.append(f"[Falta] Venta Cuota CTLS Reversada")
         else:
-            print("[Correcto] Venta Cuota CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta Cuota CTLS Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Cuota CTLS Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
 
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaCuota\n")
+        mensajes.append(f"Hubo un error con el modulo VentaCuota\n")
     else:
         logging.info('VentaCuota() se ejecutó correctamente')
     return 0

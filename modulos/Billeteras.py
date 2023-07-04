@@ -7,8 +7,9 @@ import pandas as pd
 import logging
 
 def Billeteras(): 
+    mensajes=[]
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####Billeteras####\n")
+    mensajes.append(f"####Billeteras####\n")
     try:
         # Venta Billetera ZIMPLE Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
@@ -21,9 +22,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera ZIMPLE Aprobada")
+            mensajes.append(f"[Falta] Billetera ZIMPLE Aprobada")
         else:
-            print("[Correcto] Billetera ZIMPLE Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera ZIMPLE Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera ZIMPLE Aprobada.xlsx')
 
         # Venta Billetera ZIMPLE Reversada   
@@ -37,9 +38,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera ZIMPLE Reversada")
+            mensajes.append(f"[Falta] Billetera ZIMPLE Reversada")
         else:
-            print("[Correcto] Billetera ZIMPLE Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera ZIMPLE Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera ZIMPLE Reversada.xlsx')
 
         # Venta Billetera Vision Aprobada   
@@ -53,9 +54,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera Vision Aprobada")
+            mensajes.append(f"[Falta] Billetera Vision Aprobada")
         else:
-            print("[Correcto] Billetera Vision Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera Vision Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera Vision Aprobada.xlsx')
 
         # Venta Billetera Vision Reversada   
@@ -69,9 +70,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera Vision Reversada")
+            mensajes.append(f"[Falta] Billetera Vision Reversada")
         else:
-            print("[Correcto] Billetera Vision Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera Vision Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera Vision Reversada.xlsx')
 
         # Venta Billetera PJ Aprobada   
@@ -85,9 +86,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera PJ Aprobada")
+            mensajes.append(f"[Falta] Billetera PJ Aprobada")
         else:
-            print("[Correcto] Billetera PJ Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera PJ Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera PJ Aprobada.xlsx')
 
         # Venta Billetera PJ Reversada   
@@ -101,9 +102,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera PJ Reversada")
+            mensajes.append(f"[Falta] Billetera PJ Reversada")
         else:
-            print("[Correcto] Billetera PJ Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera PJ Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera PJ Reversada.xlsx')
 
         # Venta Billetera BNF Aprobada   
@@ -117,9 +118,9 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera BNF Aprobada")
+            mensajes.append(f"[Falta] Billetera BNF Aprobada")
         else:
-            print("[Correcto] Billetera BNF Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera BNF Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera BNF Aprobada.xlsx')
 
         # Venta Billetera BNF Reversada   
@@ -133,15 +134,20 @@ def Billeteras():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Billetera BNF Reversada")
+            mensajes.append(f"[Falta] Billetera BNF Reversada")
         else:
-            print("[Correcto] Billetera BNF Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Billetera BNF Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Billetera BNF Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error en el modulo Billeteras\n")
+        mensajes.append(f"Hubo un error en el modulo Billeteras\n")
     else:
         logging.info('Billeteras() se ejecutó correctamente')
     return 0

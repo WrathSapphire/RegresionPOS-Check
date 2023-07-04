@@ -8,8 +8,9 @@ import logging
 
 
 def VentaTDTC(): 
+    mensajes= []
     df = pd.read_excel('.\\resources\MET001.xlsx')
-    print("####VentaTDTC####\n")
+    mensajes.append(f"####VentaTDTC####\n")
     try:
         # Venta TD Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
@@ -19,9 +20,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TD Banda Aprobada")
+            mensajes.append(f"[Falta] Venta TD Banda Aprobada")
         else:
-            print("[Correcto] Venta TD Banda Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD Banda Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD Banda Aprobada.xlsx')
 
         # Venta TD Banda Reversada
@@ -32,9 +33,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
-            print("[Falta] Venta TD Banda Reversada")
+            mensajes.append(f"[Falta] Venta TD Banda Reversada")
         else:
-            print("[Correcto] Venta TD Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD Banda Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD Banda Reversada.xlsx')
 
         # Venta TC Banda Aprobada
@@ -45,9 +46,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TC Banda Aprobada")
+            mensajes.append(f"[Falta] Venta TC Banda Aprobada")
         else:
-            print("[Correcto] Venta TC Banda Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC Banda Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC Banda Aprobada.xlsx')
 
         # Venta TC Banda Reversada
@@ -58,9 +59,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TC Banda Reversada")
+            mensajes.append(f"[Falta] Venta TC Banda Reversada")
         else:
-            print("[Correcto] Venta TC Banda Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC Banda Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC Banda Reversada.xlsx')
 
         # Venta TD Chip Aprobada
@@ -71,9 +72,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TD Chip Aprobada")
+            mensajes.append(f"[Falta] Venta TD Chip Aprobada")
         else:
-            print("[Correcto] Venta TD Chip Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD Chip Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD Chip Aprobada.xlsx')
 
         # Venta TD Chip Reversada
@@ -84,9 +85,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TD Chip Reversada")
+            mensajes.append(f"[Falta] Venta TD Chip Reversada")
         else:
-            print("[Correcto] Venta TD Chip Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD Chip Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD Chip Reversada.xlsx')
 
         # Venta TC Chip Aprobada
@@ -97,9 +98,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TC Chip Aprobada")
+            mensajes.append(f"[Falta] Venta TC Chip Aprobada")
         else:
-            print("[Correcto] Venta TC Chip Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC Chip Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC Chip Aprobada.xlsx')
 
         # Venta TC Chip Reversada
@@ -110,9 +111,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TC Chip Reversada")
+            mensajes.append(f"[Falta] Venta TC Chip Reversada")
         else:
-            print("[Correcto] Venta TC Chip Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC Chip Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC Chip Reversada.xlsx')
 
         # Venta TD CTLS Aprobada
@@ -123,9 +124,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TD CTLS Aprobada")
+            mensajes.append(f"[Falta] Venta TD CTLS Aprobada")
         else:
-            print("[Correcto] Venta TD CTLS Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD CTLS Aprobada.xlsx')
 
         # Venta TD CTLS Reversada
@@ -137,9 +138,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TD CTLS Reversada")
+            mensajes.append(f"[Falta] Venta TD CTLS Reversada")
         else:
-            print("[Correcto] Venta TD CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TD CTLS Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TD CTLS Reversada.xlsx')
 
         # Venta TC CTLS Aprobada
@@ -150,9 +151,9 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
         
         if df_temp.empty:
-            print("[Falta] Venta TC CTLS Aprobada")
+            mensajes.append(f"[Falta] Venta TC CTLS Aprobada")
         else:
-            print("[Correcto] Venta TC CTLS Aprobada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC CTLS Aprobada.xlsx')
 
         # Venta TC CTLS Reversada
@@ -163,15 +164,20 @@ def VentaTDTC():
         count_row = df_temp.shape[0]  
 
         if df_temp.empty:
-            print("[Falta] Venta TC CTLS Reversada")
+            mensajes.append(f"[Falta] Venta TC CTLS Reversada")
         else:
-            print("[Correcto] Venta TC CTLS Reversada", "|", count_row, "Caso(s) encontrado(s)")
+            mensajes.append(f"[Correcto] Venta TC CTLS Reversada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta TC CTLS Reversada.xlsx')
-        print("\n")
+        mensajes.append(f"\n")
+
+        with open('reporte.txt', 'a') as file:
+            for mensaje in mensajes:
+                file.write("%s\n" % mensaje)
+        file.close
     
     except Exception as e:
         logging.error(f'Error occurred: {e}', exc_info=True)
-        print("Hubo un error con el modulo VentaTDTC\n")
+        mensajes.append(f"Hubo un error con el modulo VentaTDTC\n")
     else:
         logging.info('VentaTDTC() se ejecutó correctamente')
     return 0
