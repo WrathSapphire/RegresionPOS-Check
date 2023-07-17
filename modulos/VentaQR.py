@@ -14,7 +14,7 @@ def VentaQR():
         # Venta QR TC Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
                          & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
-                         & (df['COD_PREFIJO'] == '00') 
+                         & ((df['COD_PREFIJO'] == 00) | (df['COD_PREFIJO'] == '00'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -28,7 +28,7 @@ def VentaQR():
         # Venta QR TC Reversada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
                          & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
-                         & (df['COD_PREFIJO'] == '00') 
+                         & ((df['COD_PREFIJO'] == 00) | (df['COD_PREFIJO'] == '00'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
@@ -42,7 +42,7 @@ def VentaQR():
         # Venta QR TD Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TDQR')
                          & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
-                         & (df['COD_PREFIJO'] == '00') 
+                         & ((df['COD_PREFIJO'] == 00) | (df['COD_PREFIJO'] == '00'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
@@ -56,7 +56,7 @@ def VentaQR():
         # Venta QR TD Reversada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TDQR')
                          & (df['COD_TIPO_DISPOSITIVO'] == 'APP')
-                         & (df['COD_PREFIJO'] == '00') 
+                         & ((df['COD_PREFIJO'] == 00) | (df['COD_PREFIJO'] == '00'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]

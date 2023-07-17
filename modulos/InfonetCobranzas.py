@@ -12,10 +12,10 @@ def InfonetCobranzas():
     mensajes.append(f"####InfonetCobranzas####\n")
     try:
         # Infonet Cobranzas 
-        df_temp = df.loc[(df['COD_TRANSACCION'] == 72)
+        df_temp = df.loc[((df['COD_TRANSACCION'] == 72) | (df['COD_TRANSACCION'] == '72'))
                             & (df['ID_SERVICIO'] == 'TIC')
                             & (df['COD_TIPO_DISPOSITIVO'] == 'WEB')
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
