@@ -17,7 +17,7 @@ def Billeteras():
                          & (df['MARCA' ] == 'MIB')
                          & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                          & (df['COD_PREFIJO'] == '  ') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -33,7 +33,7 @@ def Billeteras():
                          & (df['MARCA' ] == 'MIB')
                          & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                          & (df['COD_PREFIJO'] == '  ') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
@@ -49,7 +49,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'VIS')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -65,7 +65,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'VIS')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
@@ -81,7 +81,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'WPJ')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -97,7 +97,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'WPJ')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
@@ -113,7 +113,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'BBF')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -129,7 +129,7 @@ def Billeteras():
                             & (df['MARCA' ] == 'BBF')
                             & (df['PRODUCTO_DE_LA_MARCA' ] == 'MIB')
                             & (df['COD_PREFIJO'] == '  ') 
-                            & (df['COD_RESPUESTA'] == 00)
+                            & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                             & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 

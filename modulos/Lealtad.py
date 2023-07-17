@@ -13,9 +13,9 @@ def Lealtad():
     try:
         # Canje TC Lealtad Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_TRANSACCION'] == 76)                     
+                         & ((df['COD_TRANSACCION'] == 76) | (df['COD_TRANSACCION'] == '76'))                     
                          & (df['COD_PREFIJO'] == '  ')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
 
         count_row = df_temp.shape[0] 
@@ -29,9 +29,9 @@ def Lealtad():
 
         # Canje TC Lealtad Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
-                         & (df['COD_TRANSACCION'] == 76)
+                         & ((df['COD_TRANSACCION'] == 76) | (df['COD_TRANSACCION'] == '76'))
                          & (df['COD_PREFIJO'] == '  ')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
 

@@ -14,8 +14,8 @@ def VentaCuota():
         # Venta Cuota Banda Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='90') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 90) | (df['COD_PREFIJO'] == '90')) 
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -28,8 +28,8 @@ def VentaCuota():
         # Venta Cuota Banda Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='90')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 90) | (df['COD_PREFIJO'] == '90'))
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
@@ -42,8 +42,8 @@ def VentaCuota():
         # Venta Cuota Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='05') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 5) | (df['COD_PREFIJO'] == '05')) 
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -56,8 +56,8 @@ def VentaCuota():
         # Venta Cuota Chip Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='05')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 5) | (df['COD_PREFIJO'] == '05'))
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 
@@ -70,8 +70,8 @@ def VentaCuota():
         # Venta Cuota CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='07')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -84,8 +84,8 @@ def VentaCuota():
         # Venta Cuota CTLS Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
                          & (df['NRO_CUOTA'] > 1)
-                         & (df['COD_PREFIJO'] =='07')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
         

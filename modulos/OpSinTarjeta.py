@@ -17,7 +17,7 @@ def OpSinTarjeta():
                          & (df['MARCA'] == 'ENT')
                          & (df['PRODUCTO_DE_LA_MARCA'] == 'PMO')
                          & (df['COD_PREFIJO'] == '  ') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]
 
@@ -33,7 +33,7 @@ def OpSinTarjeta():
                          & (df['MARCA'] == 'ENT')
                          & (df['PRODUCTO_DE_LA_MARCA'] == 'PMO')
                          & (df['COD_PREFIJO'] == '  ') 
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]
 

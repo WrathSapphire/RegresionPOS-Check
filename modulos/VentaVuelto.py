@@ -13,7 +13,7 @@ def VentaVuelto():
     try:
         # Venta Vuelto TD Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_MEDIO_PAGO'] == 2)
+                         & (df['COD_MEDIO_PAGO'] == '02')
                          & (df['CASHBACK'] == 'S')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
@@ -27,7 +27,7 @@ def VentaVuelto():
 
         # Venta Vuelto TD Reversada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_MEDIO_PAGO'] == 2)
+                         & (df['COD_MEDIO_PAGO'] == '02')
                          & (df['CASHBACK'] == 'S')
                          & (df['COD_RESPUESTA'] == 00)
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]

@@ -13,7 +13,7 @@ def Anulaciones():
     try:
          # Venta TD Anulada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]
@@ -26,7 +26,7 @@ def Anulaciones():
 
         # Venta TC Anulada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')         
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
         count_row = df_temp.shape[0]  
 
@@ -38,7 +38,7 @@ def Anulaciones():
 
         # Venta Tarjeta Internacional Anulada
         df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]  
@@ -47,12 +47,11 @@ def Anulaciones():
         else:
             mensajes.append(f"[Correcto] Venta Tarjeta Internacional Anulada | {count_row} Caso(s) encontrado(s)")
             df_temp.to_excel('Venta Tarjeta Internacional Anulada.xlsx')
-
+            
         # Venta Tarjeta Otra Procesadora (UENO) Anulada
-        # Para correcto funcionamiento del módulo es necesario almacenar la columna NRO_TARJETA como texto
         df_temp = df.loc[((df['NRO_TARJETA'].str.contains('5585480009064136'))          #TC 
-                          | (df['NRO_TARJETA'].str.contains('5585490001200661')))       #TD
-                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
+                    | (df['NRO_TARJETA'].str.contains('5585490001200661')))       #TD
+                    & (df['COD_RESPUESTA_EXTENDIDA'] == 'R006')]
 
         count_row = df_temp.shape[0]  
         if df_temp.empty:

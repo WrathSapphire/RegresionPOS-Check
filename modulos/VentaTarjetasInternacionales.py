@@ -13,7 +13,7 @@ def VentaTarjetasInternacionales():
     try:
         # Venta Tarjeta Internacional Aprobada
         df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
         count_row = df_temp.shape[0]  
         
@@ -25,7 +25,7 @@ def VentaTarjetasInternacionales():
 
         # Venta Tarjeta Internacional Reversada
         df_temp = df.loc[(df['MARCA_LOCAL_INTERNACIONAL'] == 'I')
-                         & (df['COD_RESPUESTA'] == 00)
+                         & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')]
         count_row = df_temp.shape[0]  
         
