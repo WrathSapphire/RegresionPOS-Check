@@ -16,7 +16,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
-                         & (df['CODIGO_OPERACION'] == '01')]
+                         & ((df['CODIGO_OPERACION'] == 1) | (df['CODIGO_OPERACION'] == '01'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -30,7 +30,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
-                         & (df['CODIGO_OPERACION'] == '00')]
+                         & ((df['CODIGO_OPERACION'] == 00) | (df['CODIGO_OPERACION'] == '00'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -44,7 +44,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')
-                         & (df['CODIGO_OPERACION'] == '01')]
+                         & ((df['CODIGO_OPERACION'] == 1) | (df['CODIGO_OPERACION'] == '01'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -58,7 +58,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
-                         & (df['CODIGO_OPERACION'] == '01')]
+                         & ((df['CODIGO_OPERACION'] == 1) | (df['CODIGO_OPERACION'] == '01'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -72,7 +72,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')
-                         & (df['CODIGO_OPERACION'] == '00')]
+                         & ((df['CODIGO_OPERACION'] == 00) | (df['CODIGO_OPERACION'] == '00'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
@@ -86,7 +86,7 @@ def TransaccionesAgiles():
                          & ((df['COD_PREFIJO'] == 7) | (df['COD_PREFIJO'] == '07'))
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == 'R001')
-                         & (df['CODIGO_OPERACION'] == '01')]
+                         & ((df['CODIGO_OPERACION'] == 1) | (df['CODIGO_OPERACION'] == '01'))]
         count_row = df_temp.shape[0]
 
         if df_temp.empty:
