@@ -38,7 +38,7 @@ class VentanaPrincipal:
         self.boton_parametros = tk.Button(master, text='Parámetros',font="Helvetica", command=self.abrir_ventana_parametros, height=1, width=20)
         self.boton_parametros.place(x=300, y=210, anchor=CENTER)
         #Boton Generar Excel
-        self.botonExcel = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.JavaConnect, height=1, width=20)
+        self.botonExcel = tk.Button(master, text="Generar Excel", font="Helvetica", command=self.DBConnect, height=1, width=20)
         self.botonExcel.place(x=300, y=250, anchor=CENTER)
         #Boton Salir
         self.botonSalir = tk.Button(master, text="Salir", font="Helvetica", command=master.quit, height=1, width=20)
@@ -59,22 +59,23 @@ class VentanaPrincipal:
             InfonetCobranzas()
             Anulaciones() 
             Lealtad() 
+            CajaPOS()
             Documentacion()                                 
         except Exception as e:
             logging.error(f'Error en la ejecución del programa!\n{e}', exc_info=True)
         else:
             logging.info('El programa ejecutó todos los módulos!\n')
 
-    def JavaConnect(self):
+    def DBConnect(self):
         try:
-            os.system('java -jar .\\resources\javaConnect.jar')
+            os.system('java -jar .\\resources\DBConnect.jar')
             os.remove('MET001Test.xlsx')
             os.remove('MET001Desa.xlsx')
             os.replace('MET001.xlsx', '.\\resources\\MET001.xlsx')
         except Exception as e:
-            logging.error(f'Error en la ejecución del programa JavaConnect!\n{e}', exc_info=True)
+            logging.error(f'Error en la ejecución del programa DBConnect!\n{e}', exc_info=True)
         else:
-            logging.info('El programa ejecutó correctamente JavaConnect\n')
+            logging.info('El programa ejecutó correctamente DBConnect\n')
     def abrir_ventana_parametros(self):
         ventana_parametros = VentanaParametros(tk.Tk())
 
@@ -178,8 +179,8 @@ class VentanaParametros:
                 # Abrir el archivo query.sql y leer su contenido
                 with open('.\\resources\\query.sql', 'r') as f:
                     lines = f.readlines()
-                # Modificar la línea 37 con los seriales ingresados por el usuario
-                    lines[36] = "WHERE IN02INVSER IN ('" + "', '".join(self.seriales) + "')\n"
+                # Modificar la línea 38 con los seriales ingresados por el usuario
+                    lines[37] = "WHERE IN02INVSER IN ('" + "', '".join(self.seriales) + "')\n"
                 with open('.\\resources\\query.sql', 'w') as f:
                     f.writelines(lines)
                 f.close()
@@ -193,8 +194,8 @@ class VentanaParametros:
         # Abrir el archivo query.sql y leer su contenido
             with open('.\\resources\\query.sql', 'r') as f:
                 lines = f.readlines()
-        # Modificar la línea 38 con los seriales ingresados por el usuario
-            lines[37] = 'AND ME01MOVFEC  >= \'' + ''.join(fecha) + '\'\n'
+        # Modificar la línea 39 con los seriales ingresados por el usuario
+            lines[38] = 'AND ME01MOVFEC  >= \'' + ''.join(fecha) + '\'\n'
         # Guardar los cambios en el archivo query.sql
             with open('.\\resources\\query.sql', 'w') as f:
                 f.writelines(lines)
