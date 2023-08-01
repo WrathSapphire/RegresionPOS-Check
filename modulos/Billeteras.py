@@ -1,7 +1,9 @@
-##########################################################################################################
-# DOCUMENTACION: Automatizacion de consultas de casos de prueba Test de Regresión en POS de BANCARD S.A. #
-# QA: Javier Bernal                                                                                      #
-##########################################################################################################
+#########################################################################################################
+# Regresión Check v1.2 | Apache License 2.0 															#
+# Software de generación automática de documentación Test de Regresión en dispositivos POS de BANCARD	#
+# Javier Bernal | 2023																					#
+# Source code: https://github.com/WrathfulNico/RegresionPOS-Check										#
+#########################################################################################################
 
 import pandas as pd
 import logging
