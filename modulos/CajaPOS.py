@@ -23,7 +23,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TD Banda Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TD Banda Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TD Banda Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TD Banda Aprobada.xlsx')
 
         # Venta CajaPOS TC Banda Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
@@ -37,7 +37,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TC Banda Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TC Banda Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TC Banda Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TC Banda Aprobada.xlsx')
 
         # Venta CajaPOS TD Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
@@ -51,7 +51,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TD Chip Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TD Chip Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TD Chip Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TD Chip Aprobada.xlsx')
 
         # Venta CajaPOS TC Chip Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
@@ -65,7 +65,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TC Chip Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TC Chip Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TC Chip Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TC Chip Aprobada.xlsx')
 
         # Venta CajaPOS TD CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TD  ')
@@ -79,7 +79,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TD CTLS Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TD CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TD CTLS Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TD CTLS Aprobada.xlsx')
 
         # Venta CajaPOS TC CTLS Aprobada
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TC  ')
@@ -93,7 +93,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS TC CTLS Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS TC CTLS Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS TC CTLS Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta TC CTLS Aprobada.xlsx')
 
         # Venta CajaPOS QR TC Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TCQR')
@@ -108,7 +108,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS QR TC Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS QR TC Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS QR TC Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta QR TC Aprobada.xlsx')
 
         # Venta CajaPOS QR TD Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'TDQR')
@@ -123,7 +123,7 @@ def CajaPOS():
             mensajes.append(f"[Falta] CajaPOS Venta CajaPOS QR TD Aprobada")
         else:
             mensajes.append(f"[Correcto] CajaPOS Venta CajaPOS QR TD Aprobada | {count_row} Caso(s) encontrado(s)")
-            df_temp.to_excel('Venta CajaPOS QR TD Aprobada.xlsx')
+            df_temp.to_excel('CajaPOS Venta QR TD Aprobada.xlsx')
 
         # Venta CajaPOS Billetera ZIMPLE Aprobada   
         df_temp = df.loc[(df['COD_PRESTACION'] == 'STAR')
@@ -147,7 +147,7 @@ def CajaPOS():
                          & ((df['COD_TRANSACCION'] == 76) | (df['COD_TRANSACCION'] == '76'))                     
                          & (df['COD_PREFIJO'] == '  ')
                          & ((df['COD_RESPUESTA'] == 00) | (df['COD_RESPUESTA'] == '00'))
-                         & ((df['NRO_LOTE'] == 1) | (df['NRO_LOTE'] == '1'))
+                         #& ((df['NRO_LOTE'] == 1) | (df['NRO_LOTE'] == '1'))
                          & (df['COD_RESPUESTA_EXTENDIDA'] == '    ')]
 
         count_row = df_temp.shape[0] 
