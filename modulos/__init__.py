@@ -1,7 +1,9 @@
-##########################################################################################################
-# DOCUMENTACION: Automatizacion de consultas de casos de prueba Test de Regresión en POS de BANCARD S.A. #
-# QA: Javier Bernal                                                                                      #
-##########################################################################################################
+#############################################################################################################
+# Regresión Check v1.2 | Apache License 2.0 																#
+# Software de generación automática de documentación para Test de Regresión en dispositivos POS de BANCARD	#
+# Javier Bernal | 2023																						#
+# Source code: https://github.com/WrathfulNico/RegresionPOS-Check											#
+#############################################################################################################
 
 from modulos.VentaVuelto import *
 from modulos.VentaCuota import *
@@ -16,3 +18,4 @@ from modulos.VentaTarjetasInternacionales import *
 from modulos.Lealtad import *
 from modulos.InfonetCobranzas import *
 from modulos.FileScript import *
+from modulos.CajaPOS import *
