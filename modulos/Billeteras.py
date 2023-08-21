@@ -1,9 +1,9 @@
-#########################################################################################################
-# Regresión Check v1.2 | Apache License 2.0 															#
-# Software de generación automática de documentación Test de Regresión en dispositivos POS de BANCARD	#
-# Javier Bernal | 2023																					#
-# Source code: https://github.com/WrathfulNico/RegresionPOS-Check										#
-#########################################################################################################
+#############################################################################################################
+# Regresión POS Check | Apache License 2.0 														        	#
+# Software de generación automática de documentación para Test de Regresión en dispositivos POS de BANCARD	#
+# Javier Bernal | 2023																				    	#
+# Source code: https://github.com/WrathfulNico/RegresionPOS-Check										    #
+#############################################################################################################
 
 import pandas as pd
 import logging
