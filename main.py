@@ -12,6 +12,7 @@ import logging
 import pandas as pd
 import warnings
 from openpyxl.styles import NamedStyle
+from tkcalendar import DateEntry
 
 logging.basicConfig(filename='.\\resources\debugPrograma.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s:%(message)s')
@@ -120,27 +121,36 @@ class VentanaParametros:
         # Crear el cuadro de texto para fecha de inicio de las pruebas
         self.fecha_cert_label = tk.Label(self.master, text="Inicio de pruebas",fg="white",font=("Helvetica", 12, "bold"), bg="#003B8D")
         self.fecha_cert_label.place(relx=0.25, y=50, anchor=CENTER)
-        self.fecha_cert_entry = tk.Entry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"))
-        self.fecha_cert_entry.insert(0, "20230909")
-        self.fecha_cert_entry.place(relx=0.25, y=75, anchor=CENTER,width=75)
+        # Crear el cuadro de entrada de fecha
+        self.fecha_cert_entry = DateEntry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"), date_pattern='y-m-d')
+        self.fecha_cert_entry.place(relx=0.25, y=75, anchor=CENTER,width=90)
+        self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d') 
+        # Agregar una línea para guardar la entrada del usuario en una variable
+        self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d')
+        # Vincular una función al evento '<<DateEntrySelected>>'
+        def guardar_fecha(event):
+            self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d')
+            print(self.fecha)
+        #Se bindea a evento seleccionar entrada en calendario
+        self.fecha_cert_entry.bind("<<DateEntrySelected>>", guardar_fecha)
+
+        #Boton guardar fecha
+        self.fecha_cert_button = tk.Button(self.master, text="Guardar fecha", font="Helvetica", command=self.fecha_cert,width=15)
+        self.fecha_cert_button.place(relx=0.25, y=160, anchor=CENTER)
 
         # Crear el cuadro de texto para Comercio
         self.comercio_label = tk.Label(self.master, text="Comercio",fg="white",font=("Helvetica", 12, "bold"), bg="#003B8D")
         self.comercio_label.place(relx=0.25, y=100, anchor=CENTER)
         self.comercio_entry = tk.Entry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"))
         self.comercio_entry.insert(0, "136")
-        self.comercio_entry.place(relx=0.25, y=125, anchor=CENTER,width=75)
+        self.comercio_entry.place(relx=0.25, y=125, anchor=CENTER,width=40)
 
         # Crear el cuadro de texto para Sucursal
         self.sucursal_label = tk.Label(self.master, text="Sucursal",fg="white",font=("Helvetica", 12, "bold"), bg="#003B8D")
         self.sucursal_label.place(relx=0.75, y=100, anchor=CENTER)
         self.sucursal_entry = tk.Entry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"))
         self.sucursal_entry.insert(0, "92")
-        self.sucursal_entry.place(relx=0.75, y=125, anchor=CENTER,width=75)
-
-        #Boton guardar fecha
-        self.fecha_cert_button = tk.Button(self.master, text="Guardar fecha", font="Helvetica", command=self.fecha_cert,width=15)
-        self.fecha_cert_button.place(relx=0.25, y=160, anchor=CENTER)
+        self.sucursal_entry.place(relx=0.75, y=125, anchor=CENTER,width=40)
 
         # Crear el cuadro de texto para el número de equipos a certificar
         self.num_equipos_label = tk.Label(self.master, text="Cantidad de POS",fg="white",font=("Helvetica", 12, "bold"), bg="#003B8D")
@@ -219,16 +229,16 @@ class VentanaParametros:
         del self.seriales[:]
 
     def fecha_cert(self):
+        print(self.fecha)
         # Obtener los seriales ingresados por el usuario
-        fecha = ""
-        if self.fecha_cert_entry.get() != "":
+        if self.fecha != "":
             print("Se guardó dato fecha de certificación.")
-            fecha=(self.fecha_cert_entry.get())
+            print(self.fecha)
         # Abrir el archivo query.sql y leer su contenido
             with open('.\\resources\\query.sql', 'r') as f:
                 lines = f.readlines()
         # Modificar la línea 39 con los seriales ingresados por el usuario
-            lines[38] = 'AND ME01MOVFEC  >= \'' + ''.join(fecha) + '\'\n'
+            lines[38] = 'AND ME01MOVFEC  >= \'' + ''.join(self.fecha) + '\'\n'
         # Guardar los cambios en el archivo query.sql
             with open('.\\resources\\query.sql', 'w') as f:
                 f.writelines(lines)
@@ -236,7 +246,7 @@ class VentanaParametros:
             with open('.\\resources\\queryIC.sql', 'r') as f:
                 lines = f.readlines()
         # Modificar la línea 39 con los seriales ingresados por el usuario
-            lines[38] = 'AND ME01MOVFEC  >= \'' + ''.join(fecha) + '\'\n'
+            lines[38] = 'AND ME01MOVFEC  >= \'' + ''.join(self.fecha) + '\'\n'
         # Guardar los cambios en el archivo query.sql
             with open('.\\resources\\queryIC.sql', 'w') as f:
                 f.writelines(lines)    
