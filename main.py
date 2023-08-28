@@ -1,6 +1,6 @@
 #############################################################################################################
-# Regresión POS Check | Apache License 2.0 																#
-# Software de generación automática de documentación para Test de Regresión en dispositivos POS de BANCARD	#
+# Regresión POS Check | Apache License 2.0 														    		#
+# Software de generación automática de documentación para Test de Regresión en dispositivos POS         	#
 # Javier Bernal | 2023																						#
 # Source code: https://github.com/WrathfulNico/RegresionPOS-Check											#
 #############################################################################################################
@@ -155,7 +155,7 @@ class VentanaParametros:
         self.num_equipos_entry = tk.Entry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"))
         self.num_equipos_entry.insert(0, "3")
         self.num_equipos_entry.place(relx=0.75, y=75, anchor=CENTER,width=25)
-        
+
         #Boton crear cuadros
         self.Crear_Entry_Seriales_button = tk.Button(self.master, text="Crear cuadros", font="Helvetica", command=self.Crear_Entry_Seriales, width=15)
         self.Crear_Entry_Seriales_button.place(relx=0.75, y=160, anchor=CENTER)

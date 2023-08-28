@@ -1,6 +1,6 @@
 #############################################################################################################
-# Regresión POS Check | Apache License 2.0 												    				#
-# Software de generación automática de documentación para Test de Regresión en dispositivos POS de BANCARD	#
+# Regresión POS Check | Apache License 2.0 														    		#
+# Software de generación automática de documentación para Test de Regresión en dispositivos POS         	#
 # Javier Bernal | 2023																						#
 # Source code: https://github.com/WrathfulNico/RegresionPOS-Check											#
 #############################################################################################################
