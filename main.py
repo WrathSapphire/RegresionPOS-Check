@@ -90,9 +90,6 @@ class VentanaPrincipal:
     def abrir_ventana_parametros(self):
         ventana_parametros = VentanaParametros(tk.Tk())
 
-
-##############################################################################################################################
-
 class VentanaParametros:
     def __init__(self, master):
         # Crear la ventana principal
@@ -121,16 +118,16 @@ class VentanaParametros:
         # Crear el cuadro de texto para fecha de inicio de las pruebas
         self.fecha_cert_label = tk.Label(self.master, text="Inicio de pruebas",fg="white",font=("Helvetica", 12, "bold"), bg="#003B8D")
         self.fecha_cert_label.place(relx=0.25, y=50, anchor=CENTER)
-        # Crear el cuadro de entrada de fecha
+        # Crear el cuadro de entrada de fecha con calendario
         self.fecha_cert_entry = DateEntry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"), date_pattern='y-m-d')
         self.fecha_cert_entry.place(relx=0.25, y=75, anchor=CENTER,width=90)
         self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d') 
-        # Agregar una línea para guardar la entrada del usuario en una variable
+        # Guardar la entrada del calendario
         self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d')
-        # Vincular una función al evento '<<DateEntrySelected>>'
+
         def guardar_fecha(event):
             self.fecha = self.fecha_cert_entry.get_date().strftime('%Y%m%d')
-            print(self.fecha)
+
         #Se bindea a evento seleccionar entrada en calendario
         self.fecha_cert_entry.bind("<<DateEntrySelected>>", guardar_fecha)
 
@@ -158,6 +155,7 @@ class VentanaParametros:
         self.num_equipos_entry = tk.Entry(self.master, justify=CENTER, font=("Helvetica", 10, "bold"))
         self.num_equipos_entry.insert(0, "3")
         self.num_equipos_entry.place(relx=0.75, y=75, anchor=CENTER,width=25)
+        
         #Boton crear cuadros
         self.Crear_Entry_Seriales_button = tk.Button(self.master, text="Crear cuadros", font="Helvetica", command=self.Crear_Entry_Seriales, width=15)
         self.Crear_Entry_Seriales_button.place(relx=0.75, y=160, anchor=CENTER)
@@ -229,11 +227,9 @@ class VentanaParametros:
         del self.seriales[:]
 
     def fecha_cert(self):
-        print(self.fecha)
         # Obtener los seriales ingresados por el usuario
         if self.fecha != "":
             print("Se guardó dato fecha de certificación.")
-            print(self.fecha)
         # Abrir el archivo query.sql y leer su contenido
             with open('.\\resources\\query.sql', 'r') as f:
                 lines = f.readlines()
